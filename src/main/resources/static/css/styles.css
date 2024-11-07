@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/gimnasio.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.5);
+    z-index: -1;
+}
+
+.gym-logo {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    animation: slideInLeftFade 0.8s ease-out forwards; /* Efecto de slide in desde la izquierda */
+}
+
+.gym-logo img {
+    width: 100px;
+    height: auto;
+}
+
+.login-container {
+    position: fixed;
+    top: 25%;
+    left: 31%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: slideInFade 0.8s ease-out forwards;
+}
+
+.h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideInLeftFade 0.8s ease-out backwards;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #4cae4c;
+}
+
+/* Información del gimnasio en la esquina inferior izquierda */
+.gym-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 1.5;
+    animation: slideInLeftFade 0.8s ease-out forwards;
+}
+
+/* Animaciones */
+@keyframes slideInFade {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeftFade {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/**/
+.header {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    padding: 10px 20px; /* Espaciado del header */
+    position: fixed; /* Mantiene el header fijo en la parte superior */
+    width: 100%; /* Ancho completo */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    animation: slideDownFade 0.8s ease-out forwards;
+}
+
+.nav-menu {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding */
+    margin: 0; /* Elimina el margen */
+    display: flex; /* Utiliza flexbox para la disposición */
+}
+
+.nav-menu li {
+    position: relative; /* Necesario para el dropdown */
+    margin-right: 20px; /* Espacio entre los elementos */
+}
+
+.nav-menu a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px; /* Espaciado interno */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el ratón */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.dropdown {
+    display: none; /* Ocultar el dropdown por defecto */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 100%; /* Debajo del elemento padre */
+    left: 0; /* Alinear a la izquierda */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    padding: 10px 0; /* Espaciado del dropdown */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.nav-menu li:hover .dropdown {
+    display: block; /* Mostrar el dropdown al pasar el ratón */
+    animation: slideDownFade 0.1s ease-out forwards;
+}
+
+.dropdown li {
+    margin: 0; /* Sin margen en los elementos del dropdown */
+}
+
+.dropdown a {
+    padding: 10px 20px; /* Espaciado interno en el dropdown */
+    display: block; /* Hacer que el enlace ocupe todo el ancho */
+}
+
+.dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el ratón en el dropdown */
+}
