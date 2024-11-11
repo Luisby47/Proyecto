@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import una.ac.cr.proyecto.entity.*;
 import una.ac.cr.proyecto.service.Service;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/cursos")
@@ -12,6 +14,11 @@ public class CursoController {
 
     @Autowired
     private Service cursoService;
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<Curso>> listarCursos() {
+        return ResponseEntity.ok(cursoService.listarCursos());
+    }
 
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarCurso(@RequestBody Curso curso) {

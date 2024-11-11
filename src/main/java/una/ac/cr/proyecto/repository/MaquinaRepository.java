@@ -6,8 +6,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import una.ac.cr.proyecto.entity.Maquina;
 
+import java.util.List;
+
 @Repository
 public interface MaquinaRepository  extends JpaRepository<Maquina, Long> {
+    @Procedure(name = "ListarMaquinas")
+    List<Maquina> listarMaquinas();
+
     @Procedure(name = "insertar_maquina")
     void insertarMaquina(
             @Param("p_descripcion") String descripcion,

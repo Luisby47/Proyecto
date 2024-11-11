@@ -8,9 +8,13 @@ import una.ac.cr.proyecto.entity.Rutina;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface RutinaRepository extends JpaRepository<Rutina, Long> {
+    @Procedure(name = "ListarRutinas")
+    List<Rutina> listarRutinas();
+
     @Procedure(name = "insertar_rutina")
     void insertarRutina(
             @Param("p_cliente_cedula") Long clienteCedula,

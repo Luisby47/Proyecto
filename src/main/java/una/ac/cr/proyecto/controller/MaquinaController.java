@@ -13,6 +13,11 @@ public class MaquinaController {
     @Autowired
     private Service maquinaService;
 
+    @GetMapping("/listar")
+    public ResponseEntity<Iterable<Maquina>> listarMaquinas() {
+        return ResponseEntity.ok(maquinaService.listarMaquinas());
+    }
+
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarMaquina(@RequestBody Maquina maquina) {
         maquinaService.insertarMaquina(maquina.getDescripcion(), maquina.getEstado(), maquina.getId());

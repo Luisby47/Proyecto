@@ -4,11 +4,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import una.ac.cr.proyecto.entity.*;
 import una.ac.cr.proyecto.service.Service;
+
+
+@RestController
+@RequestMapping("/api/membresias")
 public class MembresiaController {
 
 
     @Autowired
     private Service membresiaService;
+
+    // get para obtener un membresia por id cliente
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<Membresia> obtenerMembresiaCliente(@PathVariable Long id) {
+        return ResponseEntity.ok(membresiaService.obtenerMembresiaPorClienteId(id));
+    }
+
+    // get para obtener un membresia por id membresia
+    @GetMapping("/membresia/{id}")
+    public ResponseEntity<Membresia> obtenerMembresia(@PathVariable Long id) {
+        return ResponseEntity.ok(membresiaService.obtenerMembresiaPorId(id));
+    }
 
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarMembresia(@RequestBody Membresia membresia) {

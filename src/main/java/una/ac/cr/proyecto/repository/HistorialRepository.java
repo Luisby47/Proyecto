@@ -8,9 +8,13 @@ import una.ac.cr.proyecto.entity.HistorialCurso;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface HistorialRepository extends JpaRepository<HistorialCurso, Long> {
+    @Procedure(name = "ListarHistorialCursos")
+    List<HistorialCurso> listarHistorialCursos();
+
     @Procedure(name = "insertar_historial_curso")
     void insertarHistorialCurso(
             @Param("p_cliente_cedula") Long clienteCedula,

@@ -1,9 +1,11 @@
 package una.ac.cr.proyecto.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import una.ac.cr.proyecto.entity.*;
 import una.ac.cr.proyecto.repository.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -33,6 +35,10 @@ public class Service {
 
     /* --------------------------------------- Gimnasio Repository ---------------------------------------*/
 
+    public Gimnasio obtenerGimnasio() {
+        return gimnasioRepository.obtenerGimnasio();
+    }
+
     public void insertarGimnasio(String nombre, String direccion, String horario, Long telefono, String correo) {
         gimnasioRepository.insertarGimnasio(nombre, direccion, horario, telefono, correo);
     }
@@ -45,8 +51,29 @@ public class Service {
         gimnasioRepository.eliminarGimnasio(idGimnasio);
     }
 
+
     /* --------------------------------------- Usuario Repository ---------------------------------------*/
 
+
+    public List<Usuario> listarClientes() {
+        return usuarioRepository.listarClientes();
+    }
+
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepository.listarUsuarios();
+    }
+
+    public List<Usuario> listarInstructores() {
+        return usuarioRepository.listarInstructores();
+    }
+
+    public Usuario obtenerUsuarioPorCedula(Long cedula) {
+        return usuarioRepository.obtenerUsuarioPorCedula(cedula);
+    }
+
+    public Usuario obtenerUsuarioPorId(Long idUsuario) {
+        return usuarioRepository.obtenerUsuarioPorId(idUsuario);
+    }
 
     public void insertarUsuario(Long cedula, String nombre, String apellido1, String apellido2, String contrasena,
                                 String correo, Long telCel, Long telHabitacion, String direccion, Long gimnasioId,
@@ -69,6 +96,9 @@ public class Service {
 
     /* --------------------------------------- Maquina Repository ---------------------------------------*/
 
+    public List<Maquina> listarMaquinas() {
+        return maquinaRepository.listarMaquinas();
+    }
 
     public void insertarMaquina(String descripcion, String estado, Long gimnasioId) {
         maquinaRepository.insertarMaquina(descripcion, estado, gimnasioId);
@@ -85,6 +115,10 @@ public class Service {
 
     /* --------------------------------------- Curso Repository ---------------------------------------*/
 
+    public List<Curso> listarCursos() {
+        return cursoRepository.listarCursos();
+    }
+
     public void insertarCurso(String descripcion) {
         cursoRepository.insertarCurso(descripcion);
     }
@@ -98,6 +132,10 @@ public class Service {
     }
 
     /* --------------------------------------- Rutina Repository ---------------------------------------*/
+
+    public List<Rutina> listarRutinas() {
+        return rutinaRepository.listarRutinas();
+    }
 
     public void insertarRutina(Long clienteCedula, Long instructorCedula, Long maquina, LocalDate fecha, Long horas) {
         rutinaRepository.insertarRutina(clienteCedula, instructorCedula, maquina, fecha, horas);
@@ -113,6 +151,10 @@ public class Service {
 
     /* --------------------------------------- Historial Repository ---------------------------------------*/
 
+    public List<HistorialCurso> listarHistorialCursos() {
+        return historialRepository.listarHistorialCursos();
+    }
+
     public void insertarHistorialCurso(Long clienteCedula, Long instructorCedula, Long curso, Long gimnasioId, LocalDate fecha, Long horas) {
         historialRepository.insertarHistorialCurso(clienteCedula, instructorCedula, curso, gimnasioId, fecha, horas);
     }
@@ -126,6 +168,16 @@ public class Service {
     }
 
     /* --------------------------------------- Membresia Repository ---------------------------------------*/
+
+
+    public Membresia obtenerMembresiaPorId(Long idMembresia) {
+        return membresiaRepository.obtenerMembresia(idMembresia);
+    }
+
+    public Membresia obtenerMembresiaPorClienteId(Long clienteId) {
+        return membresiaRepository.obtenerMembresiaPorCliente(clienteId);
+    }
+
 
     public void insertarMembresia(Long clienteId, String estado, LocalDate fecha) {
         membresiaRepository.insertarMembresia(clienteId, estado, fecha);

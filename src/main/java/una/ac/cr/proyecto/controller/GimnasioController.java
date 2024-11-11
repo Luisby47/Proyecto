@@ -13,6 +13,11 @@ public class GimnasioController {
     @Autowired
     private Service gimnasioService;
 
+    @GetMapping("/show")
+    public ResponseEntity<Gimnasio> obtenerGimnasio() {
+        return ResponseEntity.ok(gimnasioService.obtenerGimnasio());
+    }
+
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarGimnasio(
             @RequestBody Gimnasio gimnasio) {

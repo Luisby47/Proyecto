@@ -10,7 +10,11 @@ import java.time.LocalDate;
 
 @Repository
 public interface MembresiaRepository  extends JpaRepository<Membresia, Long> {
+    @Procedure(name = "ObtenerMembresiaPorCliente")
+    Membresia obtenerMembresiaPorCliente(@Param("id_cliente") Long idCliente);
 
+    @Procedure(name = "ObtenerMembresia")
+    Membresia obtenerMembresia(@Param("id_membresia") Long idMembresia);
 
     @Procedure(name = "insertar_membresia")
     void insertarMembresia(

@@ -7,9 +7,25 @@ import org.springframework.stereotype.Repository;
 import una.ac.cr.proyecto.entity.Usuario;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Repository
 public interface UsuarioRepository  extends JpaRepository<Usuario, Long> {
+    @Procedure(name = "ListarClientes")
+    List<Usuario> listarClientes();
+
+    @Procedure(name = "ListarUsuarios")
+    List<Usuario> listarUsuarios();
+
+    @Procedure(name = "ListarInstructores")
+    List<Usuario> listarInstructores();
+
+    @Procedure(name = "ObtenerUsuarioPorCedula")
+    Usuario obtenerUsuarioPorCedula(@Param("cedula") Long cedula);
+
+    @Procedure(name = "ObtenerUsuarioPorId")
+    Usuario obtenerUsuarioPorId(@Param("id_usuario") Long idUsuario);
+
     @Procedure(name = "insertar_usuario")
     void insertarUsuario(
             @Param("p_cedula") Long cedula,

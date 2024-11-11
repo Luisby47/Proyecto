@@ -4,12 +4,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import una.ac.cr.proyecto.entity.*;
 import una.ac.cr.proyecto.service.Service;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/historial-cursos")
 public class HistorialController {
 
     @Autowired
     private Service historialService;
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<HistorialCurso>> listarHistorialCursos() {
+        return ResponseEntity.ok(historialService.listarHistorialCursos());
+    }
 
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarHistorialCurso(@RequestBody HistorialCurso historialCurso) {

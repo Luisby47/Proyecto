@@ -13,6 +13,11 @@ public class RutinaController {
     @Autowired
     private Service rutinaService;
 
+    @GetMapping("/listar")
+    public ResponseEntity<Iterable<Rutina>> listarRutinas() {
+        return ResponseEntity.ok(rutinaService.listarRutinas());
+    }
+
     @PostMapping("/insertar")
     public ResponseEntity<Void> insertarRutina(@RequestBody Rutina rutina) {
         rutinaService.insertarRutina(
