@@ -20,9 +20,9 @@ import java.time.LocalDate;
 @Table(name = "Usuario")
 public class Usuario {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "ID_USUARIO", nullable = false)
+    @Column(name = "id_usuario")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -65,8 +65,8 @@ public class Usuario {
     @JoinColumn(name = "GIMNASIO_ID")
     private Gimnasio gimnasio;
 
-    @Column(name = "ROL_ID")
-    private Long rolId;
+    @Column(name = "ROL")
+    private String rol;
 
     @Column(name = "FECHA_INSCRIPCION")
     private LocalDate fechaInscripcion;

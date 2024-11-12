@@ -9,8 +9,8 @@
 <body>
 <div class="header">
     <ul class="nav-menu">
-        <li><a href="/inicio">Inicio</a></li>
-        <li><a href="/contactos">Contactos</a></li>
+        <li><a th:href="@{/}" >Inicio</a></li>
+        <li><a th:href="@{/listar}">Contactos</a></li>
         <li>
             <a href="#">Servicios</a>
             <ul class="dropdown">
@@ -20,7 +20,7 @@
                 <li><a href="instructores">Instructores</a></li>
             </ul>
         </li>
-        <li><a href="">Ingreso</a></li>
+
     </ul>
 </div>
 <div class="background-img"></div>
@@ -31,17 +31,23 @@
 
     <div class="login-container">
         <h2 class="login-title">Ingresar</h2>
-        <form class="login-form">
-            <input type="text" placeholder="Usuario" required>
-            <input type="password" placeholder="Contraseña" required>
+        <form class="login-form" th:action="@{/login}" method="post" >
+
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="cedula" required><br>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required><br>
+
             <button type="submit">Entrar</button>
         </form>
+
+        <div th:if="${error}">
+            <p style="color: red;">Cédula o contraseña incorrecta. Inténtelo de nuevo.</p>
+        </div>
     </div>
 
-    <div class="gym-info">
-        <p th:text="${direccion}">Av. Principal 123</p>
-        <p th:text="${horario}">Lun-Vie: 6am - 10pm</p>
-    </div>
+
 </div>
 
 </body>

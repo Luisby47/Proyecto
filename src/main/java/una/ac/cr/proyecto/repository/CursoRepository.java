@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface CursoRepository extends JpaRepository<Curso, Integer> {
 
-    @Procedure(name = "ListarCursos")
-    List<Curso> listarCursos();
 
     @Procedure(name = "insertar_curso")
     void insertarCurso(@Param("p_descripcion") String descripcion);

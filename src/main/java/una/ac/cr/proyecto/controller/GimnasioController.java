@@ -2,20 +2,24 @@ package una.ac.cr.proyecto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import una.ac.cr.proyecto.entity.Gimnasio;
 import una.ac.cr.proyecto.service.Service;
 
-@RestController
-@RequestMapping("/api/gimnasios")
+@Controller
+@RequestMapping("/gimnasios")
 public class GimnasioController {
 
     @Autowired
     private Service gimnasioService;
 
     @GetMapping("/show")
-    public ResponseEntity<Gimnasio> obtenerGimnasio() {
-        return ResponseEntity.ok(gimnasioService.obtenerGimnasio());
+    public String show(Model model) {
+        Gimnasio gimnasio = gimnasioService.obtenerGimnasio();
+        model.addAttribute("gimnasio", gimnasio);
+        return "gimnasios/show";
     }
 
     @PostMapping("/insertar")

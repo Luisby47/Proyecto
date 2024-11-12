@@ -7,7 +7,7 @@ import una.ac.cr.proyecto.entity.Rutina;
 import una.ac.cr.proyecto.service.Service;
 
 @RestController
-@RequestMapping("/api/rutinas")
+@RequestMapping("/rutinas")
 public class RutinaController {
 
     @Autowired

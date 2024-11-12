@@ -9,8 +9,8 @@
 <body>
 <div class="header">
     <ul class="nav-menu">
-        <li><a href="inicio">Inicio</a></li>
-        <li><a href="contactos">Contactos</a></li>
+        <li><a th:href="@{/}" >Inicio</a></li>
+        <li><a th:href="@{/listar}">Contactos</a></li>
         <li>
             <a href="#">Servicios</a>
             <ul class="dropdown">
@@ -20,9 +20,25 @@
                 <li><a href="instructores">Instructores</a></li>
             </ul>
         </li>
-        <li><a href="login">Ingreso</a></li>
+        <li th:if="${session.usuario == null}" ><a th:href="@{/login}">Ingreso</a></li>
+        <li th:if="${session.usuario != null}"><a th:href="@{/logout}">Logout</a></li>
+
     </ul>
 </div>
+
+<h1>Usuarios</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Cédula</th>
+    </tr>
+    <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.id}"></td>
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.cedula}"></td>
+    </tr>
+</table>
 <div class="background-img"></div>
 <div class="content">
     <div class="gym-logo">

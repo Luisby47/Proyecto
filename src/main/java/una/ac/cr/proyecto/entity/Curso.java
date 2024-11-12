@@ -27,5 +27,4 @@ public class Curso {
     @Column(name = "DESCRIPCION", length = 50)
     private String descripcion;
 
-
 }

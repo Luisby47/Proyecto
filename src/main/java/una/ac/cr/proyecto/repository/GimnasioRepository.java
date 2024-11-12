@@ -8,8 +8,7 @@ import una.ac.cr.proyecto.entity.Gimnasio;
 
 @Repository
 public interface GimnasioRepository extends JpaRepository<Gimnasio, Long> {
-    @Procedure(name = "ObtenerGimnasio")
-    Gimnasio obtenerGimnasio();
+
 
     @Procedure(name = "insertar_gimnasio")
     void insertarGimnasio(

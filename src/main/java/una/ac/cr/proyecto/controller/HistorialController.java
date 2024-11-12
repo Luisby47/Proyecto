@@ -8,7 +8,7 @@ import una.ac.cr.proyecto.service.Service;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/historial-cursos")
+@RequestMapping("/historial-cursos")
 public class HistorialController {
 
     @Autowired

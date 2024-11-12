@@ -7,7 +7,7 @@ import una.ac.cr.proyecto.entity.Maquina;
 import una.ac.cr.proyecto.service.Service;
 
 @RestController
-@RequestMapping("/api/maquinas")
+@RequestMapping("/maquinas")
 public class MaquinaController {
 
     @Autowired

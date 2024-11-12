@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/cursos")
+@RequestMapping("/cursos")
 public class CursoController {
 
     @Autowired

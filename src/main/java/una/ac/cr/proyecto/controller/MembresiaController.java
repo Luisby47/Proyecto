@@ -7,7 +7,7 @@ import una.ac.cr.proyecto.service.Service;
 
 
 @RestController
-@RequestMapping("/api/membresias")
+@RequestMapping("/membresias")
 public class MembresiaController {
 
 

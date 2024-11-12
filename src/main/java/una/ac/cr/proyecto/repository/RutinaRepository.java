@@ -12,13 +12,12 @@ import java.util.List;
 
 @Repository
 public interface RutinaRepository extends JpaRepository<Rutina, Long> {
-    @Procedure(name = "ListarRutinas")
-    List<Rutina> listarRutinas();
+
 
     @Procedure(name = "insertar_rutina")
     void insertarRutina(
-            @Param("p_cliente_cedula") Long clienteCedula,
-            @Param("p_instructor_cedula") Long instructorCedula,
+            @Param("p_cliente_cedula") Number clienteCedula,
+            @Param("p_instructor_cedula") Number instructorCedula,
             @Param("p_maquina") Long maquina,
             @Param("p_fecha") LocalDate fecha,
             @Param("p_horas") Long horas
@@ -27,8 +26,8 @@ public interface RutinaRepository extends JpaRepository<Rutina, Long> {
     @Procedure(name = "actualizar_rutina")
     void actualizarRutina(
             @Param("p_id_rutina") Long idRutina,
-            @Param("p_cliente_cedula") Long clienteCedula,
-            @Param("p_instructor_cedula") Long instructorCedula,
+            @Param("p_cliente_cedula") Number clienteCedula,
+            @Param("p_instructor_cedula") Number instructorCedula,
             @Param("p_maquina") Long maquina,
             @Param("p_fecha") LocalDate fecha,
             @Param("p_horas") Long horas

@@ -9,8 +9,8 @@
 <body>
 <div class="header">
     <ul class="nav-menu">
-        <li><a href="inicio">Inicio</a></li>
-        <li><a href="contactos">Contactos</a></li>
+        <li><a th:href="@{/}" >Inicio</a></li>
+        <li><a th:href="@{/listar}">Contactos</a></li>
         <li>
             <a href="#">Servicios</a>
             <ul class="dropdown">
@@ -20,15 +20,28 @@
                 <li><a href="instructores">Instructores</a></li>
             </ul>
         </li>
-        <li><a href="login">Ingreso</a></li>
+        <li th:if="${session.usuario == null}" ><a th:href="@{/login}">Ingreso</a></li>
+        <li th:if="${session.usuario != null}"><a th:href="@{/logout}">Logout</a></li>
     </ul>
 </div>
+
+
 <div class="background-img"></div>
 <div class="content">
     <div class="gym-logo">
         <img src="/images/gimnasio-logo.png" alt="Logo Gimnasio" />
     </div>
+
+    <div class="content">
+        <h1>Detalles del Gimnasio</h1>
+        <p>Nombre: <span th:text="${gimnasio.nombre}"></span></p>
+        <p>Dirección: <span th:text="${gimnasio.direccion}"></span></p>
+        <p>Horario: <span th:text="${gimnasio.horario}"></span></p>
+        <p>Teléfono: <span th:text="${gimnasio.telefono}"></span></p>
+        <p>Correo: <span th:text="${gimnasio.correo}"></span></p>
+    </div>
 </div>
+
 
 </body>
 </html>
